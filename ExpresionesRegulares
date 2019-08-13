@@ -1,0 +1,85 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.lang.reflect.Array;
+import java.util.regex.*;
+/**
+ *
+ * @author sistemas
+ */
+public class Practica 
+{
+    public static void main (String[] args) 
+    {
+        String[] correos = new String[5];
+        correos[0] = "a89ss_d.J@fghaaaa.a";
+        correos[1] = "Madfjkq@hotakld.dfq.eqe.de";
+        correos[2] = "Medfa.fadd";
+        correos[3] = "jdfkla@fadfa";
+        correos[4] = "as";
+        System.out.println("Correos: ");
+        Pattern pattern = Pattern.compile("([a-zA-Z])+([a-zA-Z0-9\\.\\_])+[@]([a-zA-Z]+\\.[a-zA-Z]+)+");
+        System.out.println("Pattern: "+pattern);
+        for (int i=0; i<5; i++)
+        {
+            Matcher matcher = pattern.matcher(correos[i]);
+            boolean bool = matcher.matches();
+            if (!bool)
+            {
+                System.out.println(correos[i]+" -- es incorrecto"); 
+            }
+            else
+            {
+                System.out.println(correos[i]+" -- es correcto"); 
+            }
+        }
+        System.out.println("_______________________________ \n");
+        
+        String[] rutasDeArchivo = new String[5];
+        rutasDeArchivo[0] = "C:\\\\";
+        rutasDeArchivo[1] = "a";
+        rutasDeArchivo[2] = "s";
+        rutasDeArchivo[3] = "o";
+        rutasDeArchivo[4] = "c";
+        String ruta = "";
+        System.out.println("Rutas de archivo: ");
+        Pattern pattern1 = Pattern.compile("C:\\\\");
+        System.out.println("Pattern: "+pattern1);
+        System.out.println("-----------------------------");
+        System.out.println("C:\\Archivosdeprograma\\Java\\Java.exe".matches("C:\\\\([a-zA-Z]+[\\\\\\.][a-zA-Z]+)+"));
+        System.out.println("-----------------------------");
+        for (int i=0; i<5; i++)
+        {
+            Matcher matcher1 = pattern.matcher(rutasDeArchivo[i]);
+            boolean bool = matcher1.matches();
+            if (!bool)
+            {
+                System.out.println(rutasDeArchivo[i]+" -- es incorrecto"); 
+            }
+            else
+            {
+                System.out.println(rutasDeArchivo[i]+" -- es correcto"); 
+            }
+        }
+        System.out.println(" ---------------------------- ");
+        
+        /*
+        // ---------------------
+        Pattern p = Pattern.compile(".s");//. represents single character  
+        Matcher m = p.matcher("as");    
+        boolean b = m.matches();  
+  
+        //2nd way  
+        boolean b2=Pattern.compile(".s").matcher("as").matches();  
+  
+        //3rd way  
+        boolean b3 = Pattern.matches(".s", "as");  
+  
+        System.out.println(b+" "+b2+" "+b3);  
+        // ---------------------
+                */
+        
+    }
+}
